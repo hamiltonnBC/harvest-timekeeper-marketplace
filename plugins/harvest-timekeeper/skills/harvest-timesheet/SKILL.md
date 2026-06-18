@@ -19,11 +19,13 @@ Tell them to create a fresh Personal Access Token and keep it out of chat, git, 
 
 The easiest shared setup path is for the user to run the interactive configuration wizard in their own visible terminal. Do not run `configure` inside a Codex tool terminal unless the user explicitly says they can type into that terminal, because the wizard may prompt for a Harvest token. The wizard explains each setup concept as it goes: Personal Access Token, account/user ids, project/task selection, repo path, note label, note prefix, work times, repo mappings, and optional keyword routing notes. It writes non-secret settings to `~/.config/harvest-timekeeper/config.json` and never saves the token.
 
-Give the user this command to run themselves:
+If the user cloned the marketplace repo into `~/plugins`, give them this command to run themselves:
 
 ```bash
-python3 ~/plugins/harvest-timekeeper/scripts/harvest_timekeeper.py configure
+python3 ~/plugins/harvest-timekeeper-marketplace/plugins/harvest-timekeeper/scripts/harvest_timekeeper.py configure
 ```
+
+If they cloned it somewhere else, replace `~/plugins/harvest-timekeeper-marketplace` with the actual clone path.
 
 ## Share-Safe Defaults
 
@@ -40,7 +42,7 @@ python3 ~/plugins/harvest-timekeeper/scripts/harvest_timekeeper.py configure
 ```bash
 export HARVEST_ACCESS_TOKEN='fresh-token-from-harvest'
 
-python3 ~/plugins/harvest-timekeeper/scripts/harvest_timekeeper.py discover \
+python3 ~/plugins/harvest-timekeeper-marketplace/plugins/harvest-timekeeper/scripts/harvest_timekeeper.py discover \
   --account-id <ACCOUNT_ID> \
   --user-id <USER_ID>
 ```
@@ -61,7 +63,7 @@ If a worktree or branch-local view looks empty, use `git log --all` in the confi
 5. Dry-run before first real write. After `configure`, flags such as account/user/project/task/repo/times can be omitted because they come from config:
 
 ```bash
-python3 ~/plugins/harvest-timekeeper/scripts/harvest_timekeeper.py upsert \
+python3 ~/plugins/harvest-timekeeper-marketplace/plugins/harvest-timekeeper/scripts/harvest_timekeeper.py upsert \
   --dry-run \
   --date <YYYY-MM-DD>
 ```
@@ -84,7 +86,7 @@ Use `--entry-mode clock` for start/end-time entries. If Harvest rejects clock-st
 For multiline commands, the `\` must be the final character on the line. If the shell shows `unrecognized arguments:` after a command copied with backslashes, rerun it as a single line:
 
 ```bash
-python3 ~/plugins/harvest-timekeeper/scripts/harvest_timekeeper.py discover --account-id <ACCOUNT_ID> --user-id <USER_ID>
+python3 ~/plugins/harvest-timekeeper-marketplace/plugins/harvest-timekeeper/scripts/harvest_timekeeper.py discover --account-id <ACCOUNT_ID> --user-id <USER_ID>
 ```
 
 ## References

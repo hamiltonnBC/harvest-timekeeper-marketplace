@@ -7,13 +7,13 @@ Use a Harvest Personal Access Token for personal automation. OAuth2 is for integ
 1. Tell the user to run the interactive wizard in their own visible terminal, not inside a Codex background/tool terminal by default:
 
 ```bash
-python3 ~/plugins/harvest-timekeeper/scripts/harvest_timekeeper.py configure
+python3 ~/plugins/harvest-timekeeper-marketplace/plugins/harvest-timekeeper/scripts/harvest_timekeeper.py configure
 ```
 
 2. The wizard first sends the user to https://id.getharvest.com/developers for a Personal Access Token.
 3. The wizard explains and asks for account/user ids, discovers project/task options, asks for repo path, note label, note prefix, repo mappings, optional keyword routing, and work times.
 4. It writes non-secret settings to `~/.config/harvest-timekeeper/config.json`. It does not save the token.
-5. After the wizard finishes, the user should return to Codex and ask for a dry-run of yesterday's entry, or run `python3 ~/plugins/harvest-timekeeper/scripts/harvest_timekeeper.py upsert --dry-run` themselves.
+5. After the wizard finishes, the user should return to Codex and ask for a dry-run of yesterday's entry, or run `python3 ~/plugins/harvest-timekeeper-marketplace/plugins/harvest-timekeeper/scripts/harvest_timekeeper.py upsert --dry-run` themselves.
 
 ## Manual Discovery Alternative
 
@@ -24,7 +24,7 @@ python3 ~/plugins/harvest-timekeeper/scripts/harvest_timekeeper.py configure
 5. Run discovery to list that user's assigned projects and tasks:
 
 ```bash
-python3 ~/plugins/harvest-timekeeper/scripts/harvest_timekeeper.py discover --account-id <ACCOUNT_ID> --user-id <USER_ID>
+python3 ~/plugins/harvest-timekeeper-marketplace/plugins/harvest-timekeeper/scripts/harvest_timekeeper.py discover --account-id <ACCOUNT_ID> --user-id <USER_ID>
 ```
 
 The selected `PROJECT` id and `TASK` id are per-user/per-assignment. Each user should run discovery with their own token and pick from their own assigned list. If Harvest returns 404 for project assignments, the helper falls back to recent time entries and prints project/task pairs found there. If that is empty, create one manual Harvest time entry for the intended project/task and rerun discovery, or ask a Harvest admin for the IDs.
