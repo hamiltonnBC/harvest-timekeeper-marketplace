@@ -1,0 +1,21 @@
+{
+  "name": "harvest-timekeeper",
+  "version": "0.1.0+codex.20260618152816",
+  "description": "Configure and write Harvest time entries from git-backed Codex summaries.",
+  "author": {
+    "name": "Local developer"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Harvest Timekeeper",
+    "shortDescription": "Configure Harvest entries from git summaries.",
+    "longDescription": "Harvest Timekeeper guides each user through personal-token setup, project/task discovery, note prefixes, repo mappings, work times, and git-backed daily time-entry creation or updates without storing secrets in the shared plugin.",
+    "developerName": "Local developer",
+    "category": "Productivity",
+    "capabilities": [
+      "Write",
+      "Automation"
+    ],
+    "defaultPrompt": "Use $harvest-timesheet to configure Harvest and write yesterday's time entry."
+  }
+}

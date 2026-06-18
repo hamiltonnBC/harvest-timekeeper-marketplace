@@ -1,0 +1,7 @@
+interface:
+  display_name: "Harvest Timesheet"
+  short_description: "Write Harvest time from git summaries"
+  default_prompt: "Use $harvest-timesheet to set up Harvest access and write yesterday's time entry."
+
+policy:
+  allow_implicit_invocation: true
